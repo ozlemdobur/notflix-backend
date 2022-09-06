@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MovieRepository extends CrudRepository<Movie, Long> {
-    Movie findByTitle(String title);
+    //Movie findByTitle(String title);
 }

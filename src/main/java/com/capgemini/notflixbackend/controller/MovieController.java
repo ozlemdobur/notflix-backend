@@ -5,7 +5,10 @@ import com.capgemini.notflixbackend.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Locale;
 
 @RestController
@@ -24,6 +27,7 @@ public class MovieController {
 
     }
 
+    @CrossOrigin
     @GetMapping(value = "/movies")
     public ResponseEntity<Iterable<Movie>> getAllMovies() {
 
@@ -33,18 +37,12 @@ public class MovieController {
     }
 
     @PostMapping(value = "/movies")
-    public ResponseEntity<Movie> saveMovie(Movie movie) {
+    public ResponseEntity<Movie> saveMovie(Movie movie)  {
 
         Movie movies = movieService.saveMovie(movie);
-        return ResponseEntity.ok(movies);
 
-    }
-
-    @GetMapping(value = "/movies/search")
-    public ResponseEntity<Movie> getAllMovies(@RequestParam String title) {
-
-        Movie movie = movieService.findByTitle(title);
         return ResponseEntity.ok(movie);
 
     }
+
 }

@@ -15,20 +15,24 @@ public class Movie {
     private Float rate;
     private String type;
     private String description;
+    private String photoPath;
     private String url;
 
     public Movie() {
     }
 
-    public Movie(Long id, String title, String actors, Float rate, String type, String description, String url) {
+    public Movie(Long id, String title, String actors, Float rate, String type, String description, String photoPath, String url) {
         this.id = id;
         this.title = title;
         this.actors = actors;
         this.rate = rate;
         this.type = type;
         this.description = description;
+        this.photoPath = photoPath;
         this.url = url;
     }
+
+
 
     public Long getId() {
         return id;
@@ -78,6 +82,14 @@ public class Movie {
         this.description = description;
     }
 
+    public String getPhotoPath() {
+        return photoPath;
+    }
+
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
+    }
+
     public String getUrl() {
         return url;
     }
@@ -88,13 +100,14 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "movie{" +
+        return "Movie{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", actors='" + actors + '\'' +
                 ", rate=" + rate +
                 ", type='" + type + '\'' +
                 ", description='" + description + '\'' +
+                ", photoPath='" + photoPath + '\'' +
                 ", url='" + url + '\'' +
                 '}';
     }
