@@ -1,6 +1,5 @@
 package com.capgemini.notflixbackend.service;
 
-import com.capgemini.notflixbackend.model.Movie;
 import com.capgemini.notflixbackend.model.User;
 import com.capgemini.notflixbackend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +19,15 @@ public class UserServiceImpl implements UserService{
     public User findByUsername(String username, String password) {
 
         User user = userRepository.findByUsernameAndPassword(username, password);
+
+        return user;
+
+    }
+
+    @Override
+    public Iterable<User> findAll() {
+
+        Iterable<User> user = userRepository.findAll();
 
         return user;
 
