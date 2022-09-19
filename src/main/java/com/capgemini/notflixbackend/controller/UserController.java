@@ -3,10 +3,7 @@ package com.capgemini.notflixbackend.controller;
 import com.capgemini.notflixbackend.model.User;
 import com.capgemini.notflixbackend.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value="api")
@@ -18,6 +15,7 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
+    @CrossOrigin
     @PostMapping(value = "/login")
     public ResponseEntity<User> login(String username, String password){
         User user = userRepository.findByUsernameAndPassword(username, password);
@@ -25,7 +23,7 @@ public class UserController {
         return ResponseEntity.ok(user);
 
     }
-
+    @CrossOrigin
     @GetMapping(value = "/login")
     public ResponseEntity<Iterable<User>> login(){
 
