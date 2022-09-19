@@ -3,6 +3,7 @@ package com.capgemini.notflixbackend.controller;
 import com.capgemini.notflixbackend.model.Movie;
 import com.capgemini.notflixbackend.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,13 +36,13 @@ public class MovieController {
         return ResponseEntity.ok(movies);
 
     }
-
-    @PostMapping(value = "/movies")
-    public ResponseEntity<Movie> saveMovie(Movie movie)  {
+    @CrossOrigin
+    @PostMapping(value = "/movies",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Movie> saveMovie(@RequestBody Movie movie)  {
 
         Movie movies = movieService.saveMovie(movie);
-
-        return ResponseEntity.ok(movie);
+        System.out.println("movies.toString() = " + movies.toString());
+        return ResponseEntity.ok(movies);
 
     }
 
