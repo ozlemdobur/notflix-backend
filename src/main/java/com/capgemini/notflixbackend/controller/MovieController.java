@@ -37,7 +37,7 @@ public class MovieController {
     }
     @CrossOrigin
     @PostMapping(value = "/movies")
-    public ResponseEntity<Movie> saveMovie(Movie movie)  {
+    public ResponseEntity<Movie> saveMovie(@RequestBody Movie movie)  {
         System.out.println(movie.toString());
         Movie movies = movieService.saveMovie(movie);
 
