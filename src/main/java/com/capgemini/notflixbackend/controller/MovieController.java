@@ -41,7 +41,7 @@ public class MovieController {
         System.out.println(movie.toString());
         Movie movies = movieService.saveMovie(movie);
 
-        return ResponseEntity.ok(movie);
+        return ResponseEntity.ok(movies);
 
     }
 
